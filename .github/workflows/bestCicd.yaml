@@ -40,7 +40,7 @@ jobs:
         if: ${{ failure() && steps.scan.conclusion == 'failure' }}
         uses: MeilCli/slack-upload-file@v3
         with:
-          slack_token: ${{ secrets.SLACK_TOKEN }}
+          slack_token: ${{xoxb-5065523607364-6032237051040-m5CzjzNYhE0cSKkUAawaEdUQ}}
           channel_id: ${htt{ps://hooks.slack.com/services/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}}
           file_path: 'trivy-report.txt'
           initial_comment: 'Scan report by Zhao Yinjie'
