@@ -1,4 +1,4 @@
-name: BESTCICDtask2
+name: BESTCICDtask
 # failed test
 on:
   push:
@@ -75,7 +75,7 @@ jobs:
         id: build-and-push
         with:
           push: true
-          tags: <docker username>/go-fortune:${{ github.sha }} 
+          tags: duckman35/go-fortune:${{ github.sha }} 
           
       - name: Install Cosign
         uses: sigstore/cosign-installer@v3.1.1
