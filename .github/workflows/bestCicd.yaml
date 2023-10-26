@@ -41,7 +41,7 @@ jobs:
         uses: MeilCli/slack-upload-file@v3
         with:
           slack_token: ${{ secrets.SLACK_TOKEN }}
-          channel_id: ${{https://hooks.slack.com/services/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}}
+          channel_id: ${htt{ps://hooks.slack.com/services/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}}
           file_path: 'trivy-report.txt'
           initial_comment: 'Scan report by Zhao Yinjie'
           build_and_push:
@@ -91,7 +91,7 @@ jobs:
         id: slack_success
         uses: rtCamp/action-slack-notify@v2
         env:
-          SLACK_CHANNEL: ${{ secrets.SLACK_CHANNEL_ID }}
+          SLACK_CHANNEL: ${{https://hooks.slack.com/services/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}}
           SLACK_COLOR: ${{ job.status }} 
           SLACK_MESSAGE: |
             Name: Zhao Yinjie
