@@ -29,7 +29,7 @@ jobs:
         if: ${{ failure() && steps.scan.conclusion == 'failure' }}
         uses: rtCamp/action-slack-notify@v2
         env:
-          SLACK_CHANNEL: ${{ secrets.SLACK_CHANNEL_ID }}
+          SLACK_CHANNEL: ${{https://hooks.slack.com/services/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}}
           SLACK_COLOR: ${{ job.status }} 
           SLACK_MESSAGE: 'Failed trivy scan,see uploaded report'
           SLACK_TITLE: Scan failed - Zhao Yinjie
@@ -41,7 +41,7 @@ jobs:
         uses: MeilCli/slack-upload-file@v3
         with:
           slack_token: ${{ secrets.SLACK_TOKEN }}
-          channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
+          channel_id: ${{https://hooks.slack.com/services/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}}
           file_path: 'trivy-report.txt'
           initial_comment: 'Scan report by Zhao Yinjie'
           build_and_push:
@@ -101,4 +101,4 @@ jobs:
             Docker Hub URL:  ${{ secrets.DOCKERHUB_URL }}
           SLACK_TITLE: 'Image build and signed'
           SLACK_USERNAME: 'DipSA 57 CICD'
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK: ${{https://hooks.slack.com/services/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}}
