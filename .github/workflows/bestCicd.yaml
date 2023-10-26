@@ -44,8 +44,9 @@ jobs:
           channel_id: ${htt{ps://hooks.slack.com/services/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}}
           file_path: 'trivy-report.txt'
           initial_comment: 'Scan report by Zhao Yinjie'
+          
           build_and_push:
-    runs-on: ubuntu-latest
+          runs-on: ubuntu-latest
     needs: trivy-scan-code
     if: success()
     permissions:
