@@ -29,7 +29,7 @@ jobs:
         if: ${{ failure() && steps.scan.conclusion == 'failure' }}
         uses: rtCamp/action-slack-notify@v2
         env:
-          SLACK_CHANNEL: ${{https://hooks.slack.com/services/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}}
+          SLACK_CHANNEL: ${{secrets.SLACK_CHANNEL_ID}}
           SLACK_COLOR: ${{ job.status }} 
           SLACK_MESSAGE: 'Failed trivy scan,see uploaded report'
           SLACK_TITLE: Scan failed - Zhao Yinjie
@@ -40,8 +40,8 @@ jobs:
         if: ${{ failure() && steps.scan.conclusion == 'failure' }}
         uses: MeilCli/slack-upload-file@v3
         with:
-          slack_token: ${{xoxb-5065523607364-6032237051040-m5CzjzNYhE0cSKkUAawaEdUQ}}
-          channel_id: ${htt{ps://hooks.slack.com/services/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}}
+          slack_token: ${{ secrets.SLACK_TOKEN }}
+          channel_id: ${secrets.SLACK_CHANNEL_ID}}
           file_path: 'trivy-report.txt'
           initial_comment: 'Scan report by Zhao Yinjie'
           
@@ -93,7 +93,7 @@ jobs:
         id: slack_success
         uses: rtCamp/action-slack-notify@v2
         env:
-          SLACK_CHANNEL: ${{https://hooks.slack.com/services/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}}
+          SLACK_CHANNEL: ${{secrets.SLACK_CHANNEL_ID}}
           SLACK_COLOR: ${{ job.status }} 
           SLACK_MESSAGE: |
             Name: Zhao Yinjie
