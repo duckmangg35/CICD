@@ -45,27 +45,29 @@ jobs:
           file_path: 'trivy-report.txt'
           initial_comment: 'Scan report by Zhao Yinjie'
           
-          build_and_push:
-          runs-on: ubuntu-latest
-    needs: trivy-scan-code
-    if: success()
-    permissions:
-      contents: read
-      packages: write
-      id-token: write 
+        build-and-push:
+  runs-on: ubuntu-latest
+  needs: trivy-scan-code
+  if: success()
 
-    steps:
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+  permissions:
+    contents: read
+    packages: write
+    id-token: write
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+  steps:
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v3
 
-      - name: Login to Docker Hub
-        uses: docker/login-action@v3
-        with:
-          username: ${{duckman35}}
-          password: ${{dckr_pat_PPNtTxlA0YkuznU-uTyXkTpIYCE}}
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
+    - name: Login to Docker Hub
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
 
       - name: Build and push
         uses: docker/build-push-action@v5
