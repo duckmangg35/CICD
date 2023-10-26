@@ -101,4 +101,4 @@ jobs:
             Docker Hub URL:  ${{ secrets.DOCKERHUB_URL }}
           SLACK_TITLE: 'Image build and signed'
           SLACK_USERNAME: 'DipSA 57 CICD'
-          SLACK_WEBHOOK: ${{https://hooks.slack.com/services/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}}
+          SLACK_WEBHOOK: ${{secrets.SLACK_WEBHOOK_URL}}
