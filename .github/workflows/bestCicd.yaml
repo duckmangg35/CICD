@@ -25,7 +25,7 @@ jobs:
           exit-code: "1"
           severity: HIGH  
           # severity: CRITICAL  
-          - name: Scan failed send notification to slack
+      - name: Scan failed send notification to slack
         if: ${{ failure() && steps.scan.conclusion == 'failure' }}
         uses: rtCamp/action-slack-notify@v2
         env:
