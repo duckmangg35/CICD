@@ -1,4 +1,4 @@
-name: BESTCICDtask
+name: BESTCICDtask2
 # failed test
 on:
   push:
